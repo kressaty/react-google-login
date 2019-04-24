@@ -88,6 +88,7 @@ Use GoogleLogout button to logout the user from google.
 |   onSuccess  | function |               REQUIRED               |                  |
 |   onFailure  | function |               REQUIRED               |                  |
 |   onRequest  | function |                   -                  |                  |
+|   onLoad     | function |                   -                  | Fires before loading the script, useful to show a "loading" animation prior to trying to auto login |
 |   buttonText |  string  |             Login with Google        |                  |
 |   className  |  string  |                   -                  |                  |
 |    style     |  object  |                   -                  |                  |
