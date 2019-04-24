@@ -36,6 +36,9 @@ class GoogleLogin extends Component {
     } = this.props
 
     loadScript(document, 'script', 'google-login', jsSrc, () => {
+      const { onLoad } = this.props
+      onLoad()
+      
       const params = {
         client_id: clientId,
         cookie_policy: cookiePolicy,
@@ -203,6 +206,7 @@ GoogleLogin.propTypes = {
   onFailure: PropTypes.func.isRequired,
   clientId: PropTypes.string.isRequired,
   jsSrc: PropTypes.string,
+  onLoad: PropTypes.func,
   onRequest: PropTypes.func,
   buttonText: PropTypes.node,
   scope: PropTypes.string,
@@ -246,6 +250,7 @@ GoogleLogin.defaultProps = {
   icon: true,
   theme: 'light',
   onRequest: () => {},
+  onLoad: () => {},
   jsSrc: 'https://apis.google.com/js/api.js'
 }
 
