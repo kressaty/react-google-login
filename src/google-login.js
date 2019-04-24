@@ -32,10 +32,13 @@ class GoogleLogin extends Component {
       scope,
       accessType,
       responseType,
-      jsSrc
+      jsSrc,
+      onLoad
     } = this.props
 
     loadScript(document, 'script', 'google-login', jsSrc, () => {
+      onLoad()
+      
       const params = {
         client_id: clientId,
         cookie_policy: cookiePolicy,
@@ -226,7 +229,8 @@ GoogleLogin.propTypes = {
   accessType: PropTypes.string,
   render: PropTypes.func,
   theme: PropTypes.string,
-  icon: PropTypes.bool
+  icon: PropTypes.bool,
+  onLoad: PropTypes.func
 }
 
 GoogleLogin.defaultProps = {
@@ -246,7 +250,8 @@ GoogleLogin.defaultProps = {
   icon: true,
   theme: 'light',
   onRequest: () => {},
-  jsSrc: 'https://apis.google.com/js/api.js'
+  jsSrc: 'https://apis.google.com/js/api.js',
+  onLoad: () => {}
 }
 
 export default GoogleLogin
